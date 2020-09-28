@@ -1,8 +1,17 @@
 <script>
+	
+	// #ifdef APP-PLUS
+	import checkUpdate from 'common/checkUpdate.js'
+	// #endif
+	
     export default {
         onLaunch: function() {
             console.log('App Launch');
+			console.log(plus.runtime.appid);
+			
             // #ifdef APP-PLUS
+			checkUpdate.check({})
+			/*
             // App平台检测升级，服务端代码是通过uniCloud的云函数实现的，详情可参考：https://ext.dcloud.net.cn/plugin?id=2226
 			if(plus.runtime.appid !== 'HBuilder'){ // 真机运行不需要检查更新，真机运行时appid固定为'HBuilder'，这是调试基座的appid
 				uni.request({
@@ -28,6 +37,7 @@
 				    }
 				})
 			}
+			*/
             // #endif
         },
         onShow: function() {
